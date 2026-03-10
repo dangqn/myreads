@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Đọc Sau — Kho Bài Hay</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #f5f0e8; --ink: #1a1208; --muted: #7a6e5f;
+      --accent: #c94f1e; --card: #fdfaf4; --border: #e0d8c8; --tag: #ede6d6;
+      --green: #2e7d32;
+    }
+    body { background: var(--bg); color: var(--ink); font-family: 'Lora', Georgia, serif; min-height: 100vh; }
+    body::before {
+      content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    }
+
+    header { position: relative; z-index: 1; padding: 3rem 2rem 1.5rem; max-width: 800px; margin: 0 auto; border-bottom: 2px solid var(--ink); }
+    .header-eyebrow { font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+    h1 { font-size: clamp(2rem, 6vw, 3.2rem); font-weight: 600; line-height: 1.1; letter-spacing: -0.02em; }
+    .header-sub { margin-top: 0.6rem; color: var(--muted); font-style: italic; font-size: 1rem; }
+    .stats { margin-top: 1.2rem; display: flex; gap: 2rem; flex-wrap: wrap; }
+    .stat { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: var(--muted); }
+    .stat strong { display: block; font-size: 1.4rem; color: var(--ink); font-family: 'Lora', serif; font-weight: 600; }
+    .stat strong.green { color: var(--green); }
+
+    main { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; padding: 1.8rem 2rem 4rem; }
+
+    .toolbar { display: flex; flex-direction: column; gap: 0.9rem; margin-bottom: 1.8rem; }
+
+    .search-bar { display: flex; align-items: center; gap: 0.75rem; background: var(--card); border: 1.5px solid var(--border); border-radius: 4px; padding: 0.6rem 1rem; }
+    .search-bar svg { color: var(--muted); flex-shrink: 0; }
+    .search-bar input { border: none; background: transparent; font-family: 'DM Mono', monospace; font-size: 0.85rem; color: var(--ink); width: 100%; outline: none; }
+    .search-bar input::placeholder { color: var(--muted); }
+
+    .filter-row { display: flex; gap: 0.4rem; flex-wrap: wrap; align-items: center; }
+    .filter-label { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-right: 0.3rem; white-space: nowrap; }
+
+    .filter-btn { font-family: 'DM Mono', monospace; font-size: 0.67rem; letter-spacing: 0.06em; padding: 0.3rem 0.75rem; border-radius: 2px; border: 1.5px solid var(--border); background: transparent; color: var(--muted); cursor: pointer; transition: all 0.15s; white-space: nowrap; }
+    .filter-btn:hover { border-color: var(--ink); color: var(--ink); }
+    .filter-btn.active { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+    .filter-btn.user-btn.active { background: var(--accent); border-color: var(--accent); }
+    .filter-btn.active-unread { background: var(--accent) !important; border-color: var(--accent) !important; color: #fff !important; }
+    .filter-btn.active-read   { background: var(--green)  !important; border-color: var(--green)  !important; color: #fff !important; }
+
+    .source-facebook   { color: #1877f2; }
+    .source-reddit     { color: #ff4500; }
+    .source-hackernews { color: #ff6600; }
+    .source-youtube    { color: #e00; }
+    .source-twitter    { color: #1da1f2; }
+    .source-web        { color: var(--muted); }
+
+    .bookmark-list { display: flex; flex-direction: column; }
+    .bookmark {
+      background: var(--card); border: 1.5px solid var(--border); border-bottom: none;
+      padding: 1.4rem 1.5rem; transition: background 0.15s, opacity 0.2s;
+      animation: slideIn 0.32s ease both; position: relative;
+    }
+    .bookmark:first-child { border-radius: 4px 4px 0 0; }
+    .bookmark:last-child  { border-bottom: 1.5px solid var(--border); border-radius: 0 0 4px 4px; }
+    .bookmark:only-child  { border-radius: 4px; border-bottom: 1.5px solid var(--border); }
+    .bookmark:hover { background: #fefcf7; }
+
+    .bookmark.is-read { background: #f9f9f6; border-color: #e8e8e4; opacity: 0.72; }
+    .bookmark.is-read:hover { opacity: 1; background: #fafaf8; }
+    .bookmark.is-read .bookmark-title { color: var(--muted); }
+    .bookmark.is-read::after {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+      width: 3px; background: var(--green); border-radius: 4px 0 0 4px;
+    }
+
+    @keyframes slideIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+    .bookmark-meta { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; flex-wrap: wrap; }
+    .bookmark-source  { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; }
+    .bookmark-dot     { width: 3px; height: 3px; border-radius: 50%; background: var(--border); flex-shrink: 0; }
+    .bookmark-author, .bookmark-date { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--muted); }
+    .saved-by-badge { font-family: 'DM Mono', monospace; font-size: 0.6rem; background: var(--tag); border: 1px solid var(--border); border-radius: 20px; padding: 0.1rem 0.55rem; color: var(--muted); margin-left: auto; }
+
+    .bookmark-title   { font-size: 1.02rem; font-weight: 600; line-height: 1.4; margin-bottom: 0.4rem; transition: color 0.2s; }
+    .bookmark-excerpt { font-size: 0.87rem; color: var(--muted); line-height: 1.7; font-style: italic; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .bookmark-image   { width: 100%; max-height: 200px; object-fit: cover; border-radius: 2px; margin: 0.7rem 0 0.3rem; border: 1px solid var(--border); }
+    .bookmark-note    { margin-top: 0.5rem; font-size: 0.8rem; color: var(--accent); font-style: italic; }
+    .read-at          { font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--green); margin-top: 0.3rem; }
+
+    .bookmark-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 0.9rem; gap: 0.5rem; flex-wrap: wrap; }
+    .bookmark-left   { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
+
+    .bookmark-link { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--accent); text-decoration: none; display: flex; align-items: center; gap: 0.3rem; }
+    .bookmark-link:hover { text-decoration: underline; }
+
+    .read-btn {
+      font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.05em;
+      padding: 0.25rem 0.65rem; border-radius: 2px; cursor: pointer;
+      display: flex; align-items: center; gap: 0.35rem; transition: all 0.2s;
+      white-space: nowrap; border: 1.5px solid var(--border);
+      background: transparent; color: var(--muted);
+    }
+    .read-btn:hover   { border-color: var(--green); color: var(--green); }
+    .read-btn.loading { opacity: 0.5; pointer-events: none; }
+    .read-btn.is-read { border-color: var(--green); color: var(--green); background: #e8f5e9; }
+    .read-btn.is-read:hover { background: #fce4ec; border-color: #c62828; color: #c62828; }
+
+    .bookmark-tags { display: flex; gap: 0.3rem; flex-wrap: wrap; }
+    .tag { background: var(--tag); border: 1px solid var(--border); border-radius: 2px; padding: 0.1rem 0.4rem; font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--muted); }
+
+    .empty-state { text-align: center; padding: 4rem 2rem; color: var(--muted); }
+    .empty-state p { font-style: italic; font-size: 1.05rem; }
+    .empty-state .mono { font-family: 'DM Mono', monospace; font-size: 0.72rem; margin-top: 0.75rem; }
+
+    @media (max-width: 600px) {
+      header, main { padding-left: 1.2rem; padding-right: 1.2rem; }
+      header { padding-top: 2rem; }
+      .saved-by-badge { margin-left: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-eyebrow">📚 Kho Bài Hay</div>
+  <h1>Đọc Sau</h1>
+  <p class="header-sub">Bài đáng đọc lại — lưu từ Facebook, báo, Reddit và hơn nữa.</p>
+  <div class="stats">
+    <div class="stat"><strong id="total-count">0</strong>bài đã lưu</div>
+    <div class="stat"><strong id="unread-count" class="green">0</strong>chưa đọc</div>
+    <div class="stat"><strong id="this-week">0</strong>tuần này</div>
+    <div class="stat"><strong id="user-count">0</strong>thành viên</div>
+  </div>
+</header>
+
+<main>
+  <div class="toolbar">
+    <div class="search-bar">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" id="search-input" placeholder="Tìm bài viết, tag, nguồn, người lưu..." />
+    </div>
+
+    <div class="filter-row">
+      <span class="filter-label">📖 Trạng thái</span>
+      <button class="filter-btn active" data-read="all">Tất cả</button>
+      <button class="filter-btn" data-read="unread">Chưa đọc</button>
+      <button class="filter-btn" data-read="read">Đã đọc</button>
+    </div>
+
+    <div class="filter-row" id="user-filter-row">
+      <span class="filter-label">👤 Người</span>
+      <button class="filter-btn user-btn active" data-user="all">Tất cả</button>
+    </div>
+
+    <div class="filter-row" id="source-filter-row">
+      <span class="filter-label">🌐 Nguồn</span>
+      <button class="filter-btn active" data-source="all">Tất cả</button>
+    </div>
+  </div>
+
+  <div class="bookmark-list" id="bookmark-list"></div>
+</main>
+
+<script>
+  // ── Config ────────────────────────────────────────────────────────────────
+  const N8N_MARK_READ = 'YOUR_N8N_MARK_READ_WEBHOOK_URL';
+  const GITHUB_OWNER  = 'YOUR_GITHUB_USERNAME';
+  const GITHUB_REPO   = 'YOUR_GITHUB_REPO';
+
+  // Phải khớp với slug trong WHITELIST của n8n
+  const USERS = [
+    { slug: 'nguyen', name: 'Nguyên' },
+    { slug: 'trang',  name: 'Trang'  },
+  ];
+  // ─────────────────────────────────────────────────────────────────────────
+
+  const SOURCE_META = {
+    facebook:   { label: 'Facebook',    icon: '📘', cls: 'source-facebook'   },
+    reddit:     { label: 'Reddit',      icon: '🔴', cls: 'source-reddit'     },
+    hackernews: { label: 'Hacker News', icon: '🟠', cls: 'source-hackernews' },
+    youtube:    { label: 'YouTube',     icon: '▶️',  cls: 'source-youtube'    },
+    twitter:    { label: 'Twitter / X', icon: '🐦', cls: 'source-twitter'    },
+    web:        { label: 'Web',         icon: '🌐', cls: 'source-web'         },
+  };
+
+  let allBookmarks = [];
+  let activeUser   = 'all';
+  let activeSource = 'all';
+  let activeRead   = 'all';
+  let searchQuery  = '';
+
+  async function loadBookmarks() {
+    const results = await Promise.allSettled(
+      USERS.map(u =>
+        fetch(`./bookmarks/${u.slug}.json?t=${Date.now()}`)
+          .then(r => r.ok ? r.json() : [])
+          .catch(() => [])
+      )
+    );
+    allBookmarks = results.flatMap((r, i) => {
+      const items = r.status === 'fulfilled' ? r.value : [];
+      return items.map(b => ({
+        ...b,
+        saved_by:      b.saved_by      || USERS[i].name,
+        saved_by_slug: b.saved_by_slug || USERS[i].slug,
+      }));
+    });
+    allBookmarks.sort((a, b) => new Date(b.saved_at) - new Date(a.saved_at));
+    buildUserFilter();
+    buildSourceFilter();
+    renderAll();
+    updateStats();
+  }
+
+  function buildUserFilter() {
+    const row = document.getElementById('user-filter-row');
+    row.querySelectorAll('[data-user]:not([data-user="all"])').forEach(b => b.remove());
+    const slugs = [...new Set(allBookmarks.map(b => b.saved_by_slug))];
+    USERS.filter(u => slugs.includes(u.slug)).forEach(u => {
+      const btn = document.createElement('button');
+      btn.className = 'filter-btn user-btn';
+      btn.dataset.user = u.slug;
+      btn.textContent = u.name;
+      btn.onclick = () => setUser(u.slug);
+      row.appendChild(btn);
+    });
+  }
+
+  function buildSourceFilter() {
+    const row = document.getElementById('source-filter-row');
+    row.querySelectorAll('[data-source]:not([data-source="all"])').forEach(b => b.remove());
+    const sources = [...new Set(allBookmarks.map(b => b.source || 'web'))];
+    sources.forEach(src => {
+      const m = SOURCE_META[src] || SOURCE_META.web;
+      const btn = document.createElement('button');
+      btn.className = 'filter-btn';
+      btn.dataset.source = src;
+      btn.textContent = m.icon + ' ' + m.label;
+      btn.onclick = () => setSource(src);
+      row.appendChild(btn);
+    });
+  }
+
+  function setUser(slug) {
+    activeUser = slug;
+    document.querySelectorAll('[data-user]').forEach(b =>
+      b.classList.toggle('active', b.dataset.user === slug));
+    renderAll();
+  }
+
+  function setSource(src) {
+    activeSource = src;
+    document.querySelectorAll('[data-source]').forEach(b =>
+      b.classList.toggle('active', b.dataset.source === src));
+    renderAll();
+  }
+
+  function setRead(val) {
+    activeRead = val;
+    document.querySelectorAll('[data-read]').forEach(b => {
+      b.classList.remove('active', 'active-unread', 'active-read');
+      if (b.dataset.read === val) {
+        b.classList.add('active');
+        if (val === 'unread') b.classList.add('active-unread');
+        if (val === 'read')   b.classList.add('active-read');
+      }
+    });
+    renderAll();
+  }
+
+  function renderAll() {
+    const q = searchQuery.toLowerCase();
+    const filtered = allBookmarks.filter(b => {
+      if (activeUser   !== 'all' && b.saved_by_slug !== activeUser)         return false;
+      if (activeSource !== 'all' && (b.source||'web') !== activeSource)     return false;
+      if (activeRead   === 'unread' && b.read)                              return false;
+      if (activeRead   === 'read'   && !b.read)                             return false;
+      if (q && ![b.title,b.text,b.author,b.note,...(b.tags||[]),b.saved_by]
+               .some(s => (s||'').toLowerCase().includes(q)))               return false;
+      return true;
+    });
+    renderBookmarks(filtered);
+  }
+
+  function renderBookmarks(list) {
+    const el = document.getElementById('bookmark-list');
+    if (!list.length) {
+      el.innerHTML = `<div class="empty-state"><p>Không có bài nào.</p><p class="mono">Thử đổi bộ lọc hoặc từ khoá.</p></div>`;
+      return;
+    }
+    el.innerHTML = list.map((b, i) => {
+      const src  = b.source || 'web';
+      const m    = SOURCE_META[src] || SOURCE_META.web;
+      const read = !!b.read;
+      return `
+      <div class="bookmark${read ? ' is-read' : ''}" id="card-${b.id}" style="animation-delay:${i*0.04}s">
+        <div class="bookmark-meta">
+          <span class="bookmark-source ${m.cls}">${m.icon} ${esc(b.source_label || m.label)}</span>
+          <span class="bookmark-dot"></span>
+          <span class="bookmark-author">${esc(b.author || '')}</span>
+          <span class="bookmark-dot"></span>
+          <span class="bookmark-date">${formatDate(b.saved_at)}</span>
+          <span class="saved-by-badge">👤 ${esc(b.saved_by || '')}</span>
+        </div>
+        ${b.title ? `<div class="bookmark-title">${esc(b.title)}</div>` : ''}
+        ${b.text  ? `<div class="bookmark-excerpt">${esc(b.text)}</div>` : ''}
+        ${b.image ? `<img class="bookmark-image" src="${esc(b.image)}" alt="" loading="lazy" onerror="this.style.display='none'" />` : ''}
+        ${b.note  ? `<div class="bookmark-note">💬 ${esc(b.note)}</div>` : ''}
+        ${read && b.read_at ? `<div class="read-at">✓ Đã đọc lúc ${formatDate(b.read_at)}</div>` : ''}
+        <div class="bookmark-footer">
+          <div class="bookmark-left">
+            <a class="bookmark-link" href="${esc(b.url)}" target="_blank" rel="noopener">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Xem bài gốc
+            </a>
+            <button class="read-btn${read ? ' is-read' : ''}"
+              onclick="toggleRead('${b.id}','${b.saved_by_slug}',${read})"
+              title="${read ? 'Bỏ đánh dấu đã đọc' : 'Đánh dấu đã đọc'}">
+              ${read
+                ? `<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Đã đọc`
+                : `<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Đánh dấu đã đọc`
+              }
+            </button>
+          </div>
+          <div class="bookmark-tags">${(b.tags||[]).map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div>
+        </div>
+      </div>`;
+    }).join('');
+  }
+
+  async function toggleRead(id, slug, currentRead) {
+    const newRead = !currentRead;
+    const btn = document.querySelector(`#card-${id} .read-btn`);
+    if (btn) btn.classList.add('loading');
+    try {
+      const res = await fetch(N8N_MARK_READ, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id, slug, read: newRead })
+      });
+      if (!res.ok) throw new Error();
+      const bm = allBookmarks.find(b => b.id === id);
+      if (bm) { bm.read = newRead; bm.read_at = newRead ? new Date().toISOString() : null; }
+      updateStats();
+      renderAll();
+    } catch {
+      if (btn) btn.classList.remove('loading');
+      alert('Lỗi kết nối. Thử lại nhé!');
+    }
+  }
+
+  function updateStats() {
+    const unread = allBookmarks.filter(b => !b.read).length;
+    document.getElementById('total-count').textContent  = allBookmarks.length;
+    document.getElementById('unread-count').textContent = unread;
+    document.getElementById('this-week').textContent    = allBookmarks.filter(b => new Date(b.saved_at) > Date.now() - 7*86400000).length;
+    document.getElementById('user-count').textContent   = new Set(allBookmarks.map(b => b.saved_by_slug)).size;
+  }
+
+  function esc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+  function formatDate(iso) {
+    if (!iso) return '';
+    const d = new Date(iso), diff = (Date.now()-d)/1000;
+    if (diff < 3600)   return Math.floor(diff/60)    + ' phút trước';
+    if (diff < 86400)  return Math.floor(diff/3600)  + ' giờ trước';
+    if (diff < 604800) return Math.floor(diff/86400) + ' ngày trước';
+    return d.toLocaleDateString('vi-VN');
+  }
+
+  document.getElementById('search-input').addEventListener('input', e => { searchQuery = e.target.value; renderAll(); });
+  document.querySelector('[data-user="all"]').onclick   = () => setUser('all');
+  document.querySelector('[data-source="all"]').onclick = () => setSource('all');
+  document.querySelectorAll('[data-read]').forEach(b => b.onclick = () => setRead(b.dataset.read));
+
+  loadBookmarks();
+</script>
+</body>
+</html>
