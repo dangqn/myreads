@@ -1,5 +1,29 @@
 [
   {
+    "id": "bm_1773240058409",
+    "url": null,
+    "source": "note",
+    "source_label": "Note",
+    "author": "Nguyên",
+    "title": "2. Bước 2: Vẽ bản đồ toàn bộ môn học chỉ bằng một prompt",
+    "text": "2. Bước 2: Vẽ bản đồ toàn bộ môn học chỉ bằng một prompt\nMở NotebookLM và bắt đầu với prompt sau:\n\n“5 khái niệm cốt lõi mà mọi chuyên gia trong lĩnh vực này phải hiểu trước tiên là gì?\nVới mỗi khái niệm hãy giải thích bằng ngôn ngữ đơn giản, vì sao nó quan trọng và nó liên kết với 4 khái niệm còn lại như thế nào.”\n\nPrompt này sẽ giúp bạn nhìn thấy cấu trúc xương sống của toàn bộ môn học chỉ trong vài phút, thay vì mất hàng tuần.",
+    "image": null,
+    "note": "",
+    "tags": [
+      "ai",
+      "prompt"
+    ],
+    "read": false,
+    "read_at": null,
+    "saved_by": "Nguyên",
+    "saved_by_slug": "nguyen",
+    "saved_at": "2026-03-11T14:40:58.409Z",
+    "chatId": 8793018793,
+    "githubOwner": "dangqn",
+    "githubRepo": "myreads",
+    "githubPagesUrl": "https://dangqn.github.io/myreads"
+  },
+  {
     "id": "bm_1773221868632",
     "debug_title_raw": "Nguyễn Thành Rainmaker",
     "debug_title_decoded": "Nguyễn Thành Rainmaker",
