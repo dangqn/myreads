@@ -12,8 +12,8 @@
     "tags": [
       "nauan"
     ],
-    "read": false,
-    "read_at": null,
+    "read": true,
+    "read_at": "2026-03-11T16:02:13.380Z",
     "saved_by": "Hoài",
     "saved_by_slug": "hoai",
     "saved_at": "2026-03-11T16:00:12.140Z",
