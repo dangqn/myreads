@@ -38,8 +38,8 @@
       "ai",
       "skill"
     ],
-    "read": false,
-    "read_at": null,
+    "read": true,
+    "read_at": "2026-03-11T08:21:12.977Z",
     "saved_by": "Nguyên",
     "saved_by_slug": "nguyen",
     "saved_at": "2026-03-11T08:13:53.442Z",
