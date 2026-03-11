@@ -46,6 +46,13 @@
     .filter-btn.user-btn.active { background: var(--accent); border-color: var(--accent); }
     .filter-btn.active-unread { background: var(--accent) !important; border-color: var(--accent) !important; color: #fff !important; }
     .filter-btn.active-read   { background: var(--green)  !important; border-color: var(--green)  !important; color: #fff !important; }
+    .filter-btn.tag-btn.active { background: #5c4a2a; border-color: #5c4a2a; color: #fff; }
+
+    /* Tag filter collapse */
+    .tag-filter-row { display: flex; gap: 0.4rem; flex-wrap: wrap; align-items: center; }
+    .tag-filter-row.collapsed .tag-pill-wrap { display: none; }
+    .tag-toggle { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); background: none; border: none; cursor: pointer; padding: 0; margin-left: 0.3rem; }
+    .tag-toggle:hover { text-decoration: underline; }
 
     .source-facebook   { color: #1877f2; }
     .source-reddit     { color: #ff4500; }
@@ -53,6 +60,7 @@
     .source-youtube    { color: #e00; }
     .source-twitter    { color: #1da1f2; }
     .source-web        { color: var(--muted); }
+    .source-note       { color: #8b5e3c; }
 
     .bookmark-list { display: flex; flex-direction: column; }
     .bookmark {
@@ -72,6 +80,11 @@
       content: ''; position: absolute; left: 0; top: 0; bottom: 0;
       width: 3px; background: var(--green); border-radius: 4px 0 0 4px;
     }
+
+    /* Note card */
+    .bookmark.is-note { border-left: 3px solid #8b5e3c; background: #fdf8f3; }
+    .bookmark.is-note:hover { background: #fef9f5; }
+    .bookmark.is-note .bookmark-title { font-style: italic; }
 
     @keyframes slideIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
 
@@ -156,6 +169,13 @@
       <span class="filter-label">🌐 Nguồn</span>
       <button class="filter-btn active" data-source="all">Tất cả</button>
     </div>
+
+    <div class="tag-filter-row collapsed" id="tag-filter-row">
+      <span class="filter-label">🏷️ Tags</span>
+      <button class="filter-btn tag-btn active" data-tag="all">Tất cả</button>
+      <span id="tag-pills"></span>
+      <button class="tag-toggle" id="tag-toggle">▼ xem thêm</button>
+    </div>
   </div>
 
   <div class="bookmark-list" id="bookmark-list"></div>
@@ -163,8 +183,8 @@
 
 <script>
   // ── Config ────────────────────────────────────────────────────────────────
-  const N8N_MARK_READ = 'https://n8n.lmnh.synology.me/webhook/mark-read';
-  const GITHUB_OWNER  = 'dangqn';
+  const N8N_MARK_READ = 'https://n8n.lmnh.synology.me/webhook/mark-read';  
+  const GITHUB_OWNER  = 'dangqn';  
   const GITHUB_REPO   = 'myreads';
 
   // Phải khớp với slug trong WHITELIST của n8n
@@ -181,12 +201,14 @@
     youtube:    { label: 'YouTube',     icon: '▶️',  cls: 'source-youtube'    },
     twitter:    { label: 'Twitter / X', icon: '🐦', cls: 'source-twitter'    },
     web:        { label: 'Web',         icon: '🌐', cls: 'source-web'         },
+    note:       { label: 'Note',        icon: '📝', cls: 'source-note'        },
   };
 
   let allBookmarks = [];
   let activeUser   = 'all';
   let activeSource = 'all';
   let activeRead   = 'all';
+  let activeTag    = 'all';
   let searchQuery  = '';
 
   async function loadBookmarks() {
@@ -208,6 +230,7 @@
     allBookmarks.sort((a, b) => new Date(b.saved_at) - new Date(a.saved_at));
     buildUserFilter();
     buildSourceFilter();
+    buildTagFilter();
     renderAll();
     updateStats();
   }
@@ -224,6 +247,48 @@
       btn.onclick = () => setUser(u.slug);
       row.appendChild(btn);
     });
+  }
+
+  function buildTagFilter() {
+    const pills = document.getElementById('tag-pills');
+    pills.innerHTML = '';
+    // Collect all unique tags sorted by frequency
+    const freq = {};
+    allBookmarks.forEach(b => (b.tags||[]).forEach(t => { freq[t] = (freq[t]||0) + 1; }));
+    const tags = Object.entries(freq)
+      .sort((a, b) => b[1] - a[1])
+      .map(([t]) => t);
+
+    if (!tags.length) {
+      document.getElementById('tag-filter-row').style.display = 'none';
+      return;
+    }
+    document.getElementById('tag-filter-row').style.display = '';
+
+    tags.forEach(t => {
+      const btn = document.createElement('button');
+      btn.className = 'filter-btn tag-btn';
+      btn.dataset.tag = t;
+      btn.textContent = t;
+      btn.onclick = () => setTag(t);
+      pills.appendChild(btn);
+    });
+
+    // Show toggle only if there are tags
+    const toggle = document.getElementById('tag-toggle');
+    toggle.style.display = tags.length > 0 ? '' : 'none';
+  }
+
+  function setTag(t) {
+    activeTag = t;
+    document.querySelectorAll('[data-tag]').forEach(b =>
+      b.classList.toggle('active', b.dataset.tag === t));
+    // Auto-expand when a tag is selected
+    if (t !== 'all') {
+      document.getElementById('tag-filter-row').classList.remove('collapsed');
+      document.getElementById('tag-toggle').textContent = '▲ thu gọn';
+    }
+    renderAll();
   }
 
   function buildSourceFilter() {
@@ -275,6 +340,7 @@
       if (activeSource !== 'all' && (b.source||'web') !== activeSource)     return false;
       if (activeRead   === 'unread' && b.read)                              return false;
       if (activeRead   === 'read'   && !b.read)                             return false;
+      if (activeTag    !== 'all' && !(b.tags||[]).includes(activeTag))      return false;
       if (q && ![b.title,b.text,b.author,b.note,...(b.tags||[]),b.saved_by]
                .some(s => (s||'').toLowerCase().includes(q)))               return false;
       return true;
@@ -292,27 +358,28 @@
       const src  = b.source || 'web';
       const m    = SOURCE_META[src] || SOURCE_META.web;
       const read = !!b.read;
+      const isNote = src === 'note';
       return `
-      <div class="bookmark${read ? ' is-read' : ''}" id="card-${b.id}" style="animation-delay:${i*0.04}s">
+      <div class="bookmark${read ? ' is-read' : ''}${isNote ? ' is-note' : ''}" id="card-${b.id}" style="animation-delay:${i*0.04}s">
         <div class="bookmark-meta">
-          <span class="bookmark-source ${m.cls}">${m.icon} ${esc(b.source_label || m.label)}</span>
+          <span class="bookmark-source ${m.cls}">${m.icon} ${b.source_label || m.label}</span>
           <span class="bookmark-dot"></span>
-          <span class="bookmark-author">${esc(b.author || '')}</span>
+          <span class="bookmark-author">${b.author || ''}</span>
           <span class="bookmark-dot"></span>
           <span class="bookmark-date">${formatDate(b.saved_at)}</span>
-          <span class="saved-by-badge">👤 ${esc(b.saved_by || '')}</span>
+          <span class="saved-by-badge">👤 ${b.saved_by || ''}</span>
         </div>
-        ${b.title ? `<div class="bookmark-title">${esc(b.title)}</div>` : ''}
-        ${b.text  ? `<div class="bookmark-excerpt">${esc(b.text)}</div>` : ''}
+        ${b.title ? `<div class="bookmark-title">${b.title}</div>` : ''}
+        ${b.text  ? `<div class="bookmark-excerpt">${b.text}</div>` : ''}
         ${b.image ? `<img class="bookmark-image" src="${esc(b.image)}" alt="" loading="lazy" onerror="this.style.display='none'" />` : ''}
-        ${b.note  ? `<div class="bookmark-note">💬 ${esc(b.note)}</div>` : ''}
+        ${b.note  ? `<div class="bookmark-note">💬 ${b.note}</div>` : ''}
         ${read && b.read_at ? `<div class="read-at">✓ Đã đọc lúc ${formatDate(b.read_at)}</div>` : ''}
         <div class="bookmark-footer">
           <div class="bookmark-left">
-            <a class="bookmark-link" href="${esc(b.url)}" target="_blank" rel="noopener">
+            ${!isNote ? `<a class="bookmark-link" href="${esc(b.url)}" target="_blank" rel="noopener">
               <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
               Xem bài gốc
-            </a>
+            </a>` : ''}
             <button class="read-btn${read ? ' is-read' : ''}"
               onclick="toggleRead('${b.id}','${b.saved_by_slug}',${read})"
               title="${read ? 'Bỏ đánh dấu đã đọc' : 'Đánh dấu đã đọc'}">
@@ -322,7 +389,7 @@
               }
             </button>
           </div>
-          <div class="bookmark-tags">${(b.tags||[]).map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div>
+          <div class="bookmark-tags">${(b.tags||[]).map(t=>`<span class="tag" style="cursor:pointer" onclick="setTag('${t}')">${t}</span>`).join('')}</div>
         </div>
       </div>`;
     }).join('');
@@ -371,7 +438,15 @@
   document.getElementById('search-input').addEventListener('input', e => { searchQuery = e.target.value; renderAll(); });
   document.querySelector('[data-user="all"]').onclick   = () => setUser('all');
   document.querySelector('[data-source="all"]').onclick = () => setSource('all');
+  document.querySelector('[data-tag="all"]').onclick    = () => setTag('all');
   document.querySelectorAll('[data-read]').forEach(b => b.onclick = () => setRead(b.dataset.read));
+
+  document.getElementById('tag-toggle').onclick = () => {
+    const row = document.getElementById('tag-filter-row');
+    const toggle = document.getElementById('tag-toggle');
+    const collapsed = row.classList.toggle('collapsed');
+    toggle.textContent = collapsed ? '▼ xem thêm' : '▲ thu gọn';
+  };
 
   loadBookmarks();
 </script>
