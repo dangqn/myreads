@@ -1,28 +1,5 @@
 [
   {
-    "id": "bm_1773257575469",
-    "url": null,
-    "source": "note",
-    "source_label": "Note",
-    "author": "Hoài",
-    "title": "Một ý tưởng hay.",
-    "text": "Một ý tưởng hay.",
-    "image": null,
-    "note": "",
-    "tags": [
-      "idea"
-    ],
-    "read": false,
-    "read_at": null,
-    "saved_by": "Hoài",
-    "saved_by_slug": "hoai",
-    "saved_at": "2026-03-11T19:32:55.470Z",
-    "chatId": 8584743890,
-    "githubOwner": "dangqn",
-    "githubRepo": "myreads",
-    "githubPagesUrl": "https://dangqn.github.io/myreads"
-  },
-  {
     "id": "bm_1773257331255",
     "url": "https://www.facebook.com/share/1D2UcFJEvs/",
     "source": "facebook",
