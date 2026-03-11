@@ -105,7 +105,22 @@
 
     .bookmark-link { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--accent); text-decoration: none; display: flex; align-items: center; gap: 0.3rem; }
     .bookmark-link:hover { text-decoration: underline; }
-
+    .bookmark.is-note .bookmark-excerpt {
+      -webkit-line-clamp: 2;
+      white-space: pre-wrap;
+    }
+    .bookmark.is-note .bookmark-excerpt.expanded {
+      -webkit-line-clamp: unset;
+      -webkit-box-orient: unset;
+      display: block;
+      overflow: visible;
+    }
+    .expand-btn {
+      font-family: 'DM Mono', monospace; font-size: 0.68rem;
+      color: var(--accent); background: none; border: none;
+      cursor: pointer; padding: 0; margin-top: 0.3rem;
+    }
+    .expand-btn:hover { text-decoration: underline; }
     .read-btn {
       font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.05em;
       padding: 0.25rem 0.65rem; border-radius: 2px; cursor: pointer;
@@ -234,7 +249,14 @@
     renderAll();
     updateStats();
   }
-
+  
+  function toggleExpand(id) {
+    const excerpt = document.querySelector(`#card-${id} .bookmark-excerpt`);
+    const btn     = document.querySelector(`#card-${id} .expand-btn`);
+    const expanded = excerpt.classList.toggle('expanded');
+    btn.textContent = expanded ? '▲ Thu gọn' : '▼ Xem thêm';
+  }
+  
   function buildUserFilter() {
     const row = document.getElementById('user-filter-row');
     row.querySelectorAll('[data-user]:not([data-user="all"])').forEach(b => b.remove());
@@ -370,7 +392,11 @@
           <span class="saved-by-badge">👤 ${b.saved_by || ''}</span>
         </div>
         ${b.title ? `<div class="bookmark-title">${b.title}</div>` : ''}
-        ${b.text  ? `<div class="bookmark-excerpt">${b.text}</div>` : ''}
+        ${b.text ? (isNote
+          ? `<div class="bookmark-excerpt">${b.text}</div>
+             <button class="expand-btn" onclick="toggleExpand('${b.id}')">▼ Xem thêm</button>`
+          : `<div class="bookmark-excerpt">${b.text}</div>`
+        ) : ''}
         ${b.image ? `<img class="bookmark-image" src="${esc(b.image)}" alt="" loading="lazy" onerror="this.style.display='none'" />` : ''}
         ${b.note  ? `<div class="bookmark-note">💬 ${b.note}</div>` : ''}
         ${read && b.read_at ? `<div class="read-at">✓ Đã đọc lúc ${formatDate(b.read_at)}</div>` : ''}
