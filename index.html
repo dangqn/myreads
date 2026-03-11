@@ -85,6 +85,17 @@
     .bookmark.is-note { border-left: 3px solid #8b5e3c; background: #fdf8f3; }
     .bookmark.is-note:hover { background: #fef9f5; }
     .bookmark.is-note .bookmark-title { font-style: italic; }
+    .bookmark.is-note .bookmark-excerpt { white-space: pre-wrap; }
+    .bookmark.is-note .bookmark-excerpt.expanded {
+      -webkit-line-clamp: unset; -webkit-box-orient: unset;
+      display: block; overflow: visible;
+    }
+    .expand-btn {
+      font-family: 'DM Mono', monospace; font-size: 0.68rem;
+      color: var(--accent); background: none; border: none;
+      cursor: pointer; padding: 0; margin-top: 0.3rem; display: block;
+    }
+    .expand-btn:hover { text-decoration: underline; }
 
     @keyframes slideIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
 
@@ -93,6 +104,7 @@
     .bookmark-dot     { width: 3px; height: 3px; border-radius: 50%; background: var(--border); flex-shrink: 0; }
     .bookmark-author, .bookmark-date { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--muted); }
     .saved-by-badge { font-family: 'DM Mono', monospace; font-size: 0.6rem; background: var(--tag); border: 1px solid var(--border); border-radius: 20px; padding: 0.1rem 0.55rem; color: var(--muted); margin-left: auto; }
+    .num-badge { font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--muted); opacity: 0.6; }
 
     .bookmark-title   { font-size: 1.02rem; font-weight: 600; line-height: 1.4; margin-bottom: 0.4rem; transition: color 0.2s; }
     .bookmark-excerpt { font-size: 0.87rem; color: var(--muted); line-height: 1.7; font-style: italic; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
@@ -105,22 +117,7 @@
 
     .bookmark-link { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--accent); text-decoration: none; display: flex; align-items: center; gap: 0.3rem; }
     .bookmark-link:hover { text-decoration: underline; }
-    .bookmark.is-note .bookmark-excerpt {
-      -webkit-line-clamp: 2;
-      white-space: pre-wrap;
-    }
-    .bookmark.is-note .bookmark-excerpt.expanded {
-      -webkit-line-clamp: unset;
-      -webkit-box-orient: unset;
-      display: block;
-      overflow: visible;
-    }
-    .expand-btn {
-      font-family: 'DM Mono', monospace; font-size: 0.68rem;
-      color: var(--accent); background: none; border: none;
-      cursor: pointer; padding: 0; margin-top: 0.3rem;
-    }
-    .expand-btn:hover { text-decoration: underline; }
+
     .read-btn {
       font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.05em;
       padding: 0.25rem 0.65rem; border-radius: 2px; cursor: pointer;
@@ -145,9 +142,49 @@
       header { padding-top: 2rem; }
       .saved-by-badge { margin-left: 0; }
     }
+
+    /* ── Login overlay ── */
+    #login-overlay {
+      position: fixed; inset: 0; z-index: 100;
+      background: var(--bg); display: flex; align-items: center; justify-content: center;
+    }
+    #login-overlay.hidden { display: none; }
+    .login-box {
+      background: var(--card); border: 2px solid var(--ink);
+      padding: 2.5rem 2rem; width: 100%; max-width: 340px; border-radius: 4px;
+      text-align: center;
+    }
+    .login-box h2 { font-size: 1.4rem; margin-bottom: 0.3rem; }
+    .login-box p  { color: var(--muted); font-style: italic; font-size: 0.9rem; margin-bottom: 1.5rem; }
+    .login-input {
+      width: 100%; padding: 0.65rem 1rem; font-family: 'DM Mono', monospace;
+      font-size: 0.9rem; border: 1.5px solid var(--border); border-radius: 3px;
+      background: var(--bg); color: var(--ink); outline: none; margin-bottom: 0.75rem;
+      text-align: center; letter-spacing: 0.1em;
+    }
+    .login-input:focus { border-color: var(--ink); }
+    .login-btn {
+      width: 100%; padding: 0.65rem; font-family: 'DM Mono', monospace;
+      font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;
+      background: var(--ink); color: var(--bg); border: none; border-radius: 3px;
+      cursor: pointer; transition: opacity 0.15s;
+    }
+    .login-btn:hover { opacity: 0.85; }
+    .login-error { color: var(--accent); font-family: 'DM Mono', monospace; font-size: 0.72rem; margin-top: 0.6rem; display: none; }
+    .login-error.show { display: block; }
   </style>
 </head>
 <body>
+
+<div id="login-overlay">
+  <div class="login-box">
+    <h2>📚 Đọc Sau</h2>
+    <p>Nhập mật khẩu để vào kho bài</p>
+    <input class="login-input" type="password" id="pw-input" placeholder="Mật khẩu..." />
+    <button class="login-btn" onclick="checkPassword()">Vào →</button>
+    <div class="login-error" id="login-error">Mật khẩu không đúng</div>
+  </div>
+</div>
 
 <header>
   <div class="header-eyebrow">📚 Kho Bài Hay</div>
@@ -201,6 +238,7 @@
   const N8N_MARK_READ = 'https://n8n.lmnh.synology.me/webhook/mark-read';  
   const GITHUB_OWNER  = 'dangqn';  
   const GITHUB_REPO   = 'myreads';
+  const PASSWORD      = 'ReadLater!';
 
   // Phải khớp với slug trong WHITELIST của n8n
   const USERS = [
@@ -208,6 +246,31 @@
     { slug: 'hoai',  name: 'Hoài'  },
   ];
   // ─────────────────────────────────────────────────────────────────────────
+
+  // ── Login ─────────────────────────────────────────────────────────────────
+  function checkPassword() {
+    const input = document.getElementById('pw-input').value;
+    if (input === PASSWORD) {
+      localStorage.setItem('docsau_auth', PASSWORD);
+      document.getElementById('login-overlay').classList.add('hidden');
+      loadBookmarks();
+    } else {
+      document.getElementById('login-error').classList.add('show');
+      document.getElementById('pw-input').value = '';
+      document.getElementById('pw-input').focus();
+    }
+  }
+
+  // Enter key để submit
+  document.getElementById('pw-input').addEventListener('keydown', e => {
+    if (e.key === 'Enter') checkPassword();
+  });
+
+  // Kiểm tra localStorage khi load
+  if (localStorage.getItem('docsau_auth') === PASSWORD) {
+    document.getElementById('login-overlay').classList.add('hidden');
+    loadBookmarks();
+  }
 
   const SOURCE_META = {
     facebook:   { label: 'Facebook',    icon: '📘', cls: 'source-facebook'   },
@@ -249,14 +312,7 @@
     renderAll();
     updateStats();
   }
-  
-  function toggleExpand(id) {
-    const excerpt = document.querySelector(`#card-${id} .bookmark-excerpt`);
-    const btn     = document.querySelector(`#card-${id} .expand-btn`);
-    const expanded = excerpt.classList.toggle('expanded');
-    btn.textContent = expanded ? '▲ Thu gọn' : '▼ Xem thêm';
-  }
-  
+
   function buildUserFilter() {
     const row = document.getElementById('user-filter-row');
     row.querySelectorAll('[data-user]:not([data-user="all"])').forEach(b => b.remove());
@@ -389,14 +445,13 @@
           <span class="bookmark-author">${b.author || ''}</span>
           <span class="bookmark-dot"></span>
           <span class="bookmark-date">${formatDate(b.saved_at)}</span>
+          ${b.num ? `<span class="num-badge">#${b.num}</span>` : ''}
           <span class="saved-by-badge">👤 ${b.saved_by || ''}</span>
         </div>
         ${b.title ? `<div class="bookmark-title">${b.title}</div>` : ''}
         ${b.text ? (isNote
-          ? `<div class="bookmark-excerpt">${b.text}</div>
-             <button class="expand-btn" onclick="toggleExpand('${b.id}')">▼ Xem thêm</button>`
-          : `<div class="bookmark-excerpt">${b.text}</div>`
-        ) : ''}
+          ? `<div class="bookmark-excerpt">${b.text}</div><button class="expand-btn" onclick="toggleExpand('${b.id}')">▼ Xem thêm</button>`
+          : `<div class="bookmark-excerpt">${b.text}</div>`) : ''}
         ${b.image ? `<img class="bookmark-image" src="${esc(b.image)}" alt="" loading="lazy" onerror="this.style.display='none'" />` : ''}
         ${b.note  ? `<div class="bookmark-note">💬 ${b.note}</div>` : ''}
         ${read && b.read_at ? `<div class="read-at">✓ Đã đọc lúc ${formatDate(b.read_at)}</div>` : ''}
@@ -419,6 +474,13 @@
         </div>
       </div>`;
     }).join('');
+  }
+
+  function toggleExpand(id) {
+    const excerpt = document.querySelector(`#card-${id} .bookmark-excerpt`);
+    const btn     = document.querySelector(`#card-${id} .expand-btn`);
+    const expanded = excerpt.classList.toggle('expanded');
+    btn.textContent = expanded ? '▲ Thu gọn' : '▼ Xem thêm';
   }
 
   async function toggleRead(id, slug, currentRead) {
@@ -473,8 +535,6 @@
     const collapsed = row.classList.toggle('collapsed');
     toggle.textContent = collapsed ? '▼ xem thêm' : '▲ thu gọn';
   };
-
-  loadBookmarks();
 </script>
 </body>
 </html>
