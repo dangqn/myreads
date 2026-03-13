@@ -14,8 +14,8 @@
       "ai",
       "llm"
     ],
-    "read": false,
-    "read_at": null,
+    "read": true,
+    "read_at": "2026-03-13T14:39:59.978Z",
     "saved_by": "Nguyên",
     "saved_by_slug": "nguyen",
     "saved_at": "2026-03-12T19:28:27.731Z"
