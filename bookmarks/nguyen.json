@@ -1,5 +1,27 @@
 [
   {
+    "id": "bm_1773524998676",
+    "num": 16,
+    "url": "https://www.facebook.com/groups/852586990732832/permalink/900073585984172/",
+    "source": "facebook",
+    "source_label": "Facebook",
+    "author": "",
+    "title": "Chào anh em, | Facebook",
+    "text": "Chào anh em,\nMình vừa open-source một con CLI tool cho phép AI coding agent (Claude Code, Cursor, Copilot...) tự động gửi tin nhắn Zalo, chuyển khoản ngân hàng, quản lý nhiều tài khoản qua terminal....",
+    "image": "https://scontent-muc2-1.xx.fbcdn.net/v/t39.30808-6/652142815_4311587289099815_1944060187112574524_n.jpg?stp=dst-jpg_tt6&cstp=mx512x512&ctp=s512x512&_nc_cat=104&ccb=1-7&_nc_sid=bb2ce1&_nc_ohc=7SgfrL4xq7QQ7kNvwHFKwbc&_nc_oc=Adm-8UI8Q64UhYFD-hzjT0DqYes-QcIJ3UmOtByy7wILOJtnU0lBSZHiPw_MVn8PdmU&_nc_zt=23&_nc_ht=scontent-muc2-1.xx&_nc_gid=qgaOm5YcaqLYpxKjjgVFww&_nc_ss=8&oh=00_Afx4IBHzrgTsc_P_13pjqDd4pbEBbzpGMmNKJQqroBqyMQ&oe=69BB9E89",
+    "note": ".",
+    "tags": [
+      "ai",
+      "zalo",
+      "n8n"
+    ],
+    "read": false,
+    "read_at": null,
+    "saved_by": "Nguyên",
+    "saved_by_slug": "nguyen",
+    "saved_at": "2026-03-14T21:49:58.681Z"
+  },
+  {
     "id": "bm_1773515565257",
     "num": 15,
     "url": "https://2026-03-15-antigravity-kit-book.vercel.app/?fbclid=IwZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPNDA5OTYyNjIzMDg1NjA5AAEeX57wW8DxsHB5Vd5_L5uYwzuOjVVCzPhszdftHMveAevU0mbVeuYXYyk0q4s_aem_tFkxF7O3Cn2x-qucMm9jBA",
