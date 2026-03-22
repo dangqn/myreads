@@ -1,5 +1,26 @@
 [
   {
+    "id": "bm_1774149492919",
+    "num": 34,
+    "url": "https://www.facebook.com/100006243973456/posts/pfbid0kStPhyhR1ZXyPqeY4EGX8G7sD7x8uYD5jvCvpPYG8ddrZ1wtEPkFRSbpQjV9vmo1l/",
+    "source": "facebook",
+    "source_label": "Facebook",
+    "author": "",
+    "title": "Quang Phan",
+    "text": "Tổng hợp các Claude Code Hooks phổ biến mà mình thấy và thật ra nó hay hơn mình nghĩ rất nhiều.\n\nNói đơn giản: hooks là những “điểm chặn” hay \"checkpoint\" hay \"hook\" mà thôi đại đại đi... mà bạn có...",
+    "image": "https://scontent-fra5-2.xx.fbcdn.net/v/t39.30808-6/653701002_4231655070385917_5326994865268628205_n.jpg?stp=dst-jpg_tt6&cstp=mx1200x675&ctp=p600x600&_nc_cat=109&ccb=1-7&_nc_sid=3b1b4a&_nc_ohc=Opo-zNSXaIMQ7kNvwFI4K0g&_nc_oc=AdoELAx_vmq-o6Vjp2IlgzA4AIrpybWZOMBRy87SA1LLzhVJYENvx3v8CBJknOP13GM&_nc_zt=23&_nc_ht=scontent-fra5-2.xx&_nc_gid=TLWC6AfGEeapl7irVIDvag&_nc_ss=7a30f&oh=00_Afz0mnSzd00D7ECJKjmdgxu9vB9LwpkNMERFO7qXLSK2kQ&oe=69C520CC",
+    "note": ".",
+    "tags": [
+      "ai",
+      "claude"
+    ],
+    "read": false,
+    "read_at": null,
+    "saved_by": "Nguyên",
+    "saved_by_slug": "nguyen",
+    "saved_at": "2026-03-22T03:18:12.930Z"
+  },
+  {
     "id": "bm_1774089401585",
     "num": 33,
     "url": "https://github.com/Lum1104/Understand-Anything?fbclid=IwZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPNDA5OTYyNjIzMDg1NjA5AAEekfeO8KqsfTzCu5TplQJ0Si7vb5TupVnsYXGkLB5vwgrtZnuI_DBs2w-1zfU_aem__mtolb7ajIvdNOEgNP6v1g",
