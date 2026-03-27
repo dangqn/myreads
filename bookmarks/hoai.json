@@ -1,1 +1,23 @@
-[]
+[
+  {
+    "id": "bm_1774584638308",
+    "num": 41,
+    "url": "https://www.facebook.com/1010276030/posts/pfbid02a2xTNebGaHA38qNbcAWUkPWGriNLd8mws97dSDEZq4rYWs8xb6WScUT9rDkVbb9Sl/",
+    "source": "facebook",
+    "source_label": "Facebook",
+    "author": "",
+    "title": "Duy Nguyen",
+    "text": "Vừa hay hôm qua mình vừa chia sẻ về cách bắt đầu với Agent Skills trong workshop \"Claude in Action\" của Tony, nay đọc đc bài của Misanthropic về cách họ dùng Skills trong nội bộ:\n\n1/ Skill không phải...",
+    "image": "https://scontent-muc2-1.xx.fbcdn.net/v/t39.30808-6/656908827_10237391342535596_2838809821111919524_n.jpg?stp=dst-jpg_tt6&cstp=mx1744x1388&ctp=p600x600&_nc_cat=104&ccb=1-7&_nc_sid=3b1b4a&_nc_ohc=IGQVospvNNoQ7kNvwGp5hM0&_nc_oc=AdoNL2_ktiNJ4zVQLN5h5YQLv39uXvyj0mAMV5nlitWuO82KLpiGmR6yNObPCfqJOiE&_nc_zt=23&_nc_ht=scontent-muc2-1.xx&_nc_gid=tKo4qbzWqD6pqy9Pl0pnSw&_nc_ss=7a30f&oh=00_Afx_Obs13uaIC5-cxtTVY_mNIF7_J8bJfPP9e6zC1v8_vA&oe=69CBC76D",
+    "note": "",
+    "tags": [
+      "ai",
+      "claude"
+    ],
+    "read": false,
+    "read_at": null,
+    "saved_by": "Hoài",
+    "saved_by_slug": "hoai",
+    "saved_at": "2026-03-27T04:10:38.312Z"
+  }
+]
