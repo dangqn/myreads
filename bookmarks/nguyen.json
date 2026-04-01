@@ -1,5 +1,26 @@
 [
   {
+    "id": "bm_1775084400428",
+    "num": 48,
+    "url": "https://open.substack.com/pub/thieunv/p/kham-pha-goclaw-1-designing-a-skill?utm_campaign=post&utm_medium=web",
+    "source": "web",
+    "source_label": "Web",
+    "author": "Thieu Nguyen",
+    "title": "Khám phá GoClaw #1 - Designing a Skill System for AI Agents at Scale",
+    "text": "Search, security, dependency và versioning trong một hệ thống multi-tenant thực tế",
+    "image": "https://substackcdn.com/image/fetch/$s_!btYi!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F81c33345-c5a8-493a-b12e-4a3bb04cba70_2400x1260.png",
+    "note": "",
+    "tags": [
+      "ai",
+      "goclaw"
+    ],
+    "read": false,
+    "read_at": null,
+    "saved_by": "Nguyên",
+    "saved_by_slug": "nguyen",
+    "saved_at": "2026-04-01T23:00:00.429Z"
+  },
+  {
     "id": "bm_1775083876066",
     "num": 47,
     "url": "https://www.facebook.com/100063578533075/posts/1523691649760105/?app=fbl",
