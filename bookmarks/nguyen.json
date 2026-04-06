@@ -1,5 +1,26 @@
 [
   {
+    "id": "bm_1775491434732",
+    "num": 59,
+    "url": "https://www.facebook.com/100062399825681/posts/1296561892433793/?app=fbl",
+    "source": "facebook",
+    "source_label": "Facebook",
+    "author": "",
+    "title": "Nguyễn Tiệp",
+    "text": "Cách tôi xây dựng 17 AI Agent hỗ trợ công việc hàng ngày!\nTôi xây nó như một bộ máy làm việc số: có người ra quyết định, có tầng điều phối, có tầng thực thi, có tầng lưu giữ tri thức. Trong mô hình...",
+    "image": "https://scontent-fra5-1.xx.fbcdn.net/v/t39.30808-6/667630876_1296670905756225_7310393948753838244_n.jpg?stp=cp6_dst-jpg_tt6&cstp=mx2048x1169&ctp=p600x600&_nc_cat=100&ccb=1-7&_nc_sid=3b1b4a&_nc_ohc=Myd-F1r_m98Q7kNvwHugHZ9&_nc_oc=AdrwsXcM7cyYaS-bBCgPtHrFzkhY94AhtFo8yuN9y8b89Kx6wa5SCUzJUT30CSx46ow&_nc_zt=23&_nc_ht=scontent-fra5-1.xx&_nc_gid=2aGIL9WN4Fs3Ofj-yxfDVQ&_nc_ss=7a30f&oh=00_Af1lUDB3doXin7ILMszaAdrTTnEH9LN_SNN9-gFqPZVu3w&oe=69D9C3D1",
+    "note": ".",
+    "tags": [
+      "ai",
+      "paperclip"
+    ],
+    "read": false,
+    "read_at": null,
+    "saved_by": "Nguyên",
+    "saved_by_slug": "nguyen",
+    "saved_at": "2026-04-06T16:03:54.737Z"
+  },
+  {
     "id": "bm_1775400097228",
     "num": 58,
     "url": "https://github.com/rtk-ai/rtk?fbclid=IwY2xjawQ_S3lleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA80MDk5NjI2MjMwODU2MDkAAR5QOxhjbk8qzWssyrK9iW3uBQ8WE66crP3dhAxXIq8Jw8gesZ1QyPRKjp4HBg_aem_eSA53kkHOifIcz_h9q9-Ng",
