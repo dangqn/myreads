@@ -1,5 +1,26 @@
 [
   {
+    "id": "bm_1776751654260",
+    "num": 78,
+    "url": "https://github.com/tirth8205/code-review-graph?fbclid=IwY2xjawRT8CpleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA80MDk5NjI2MjMwODU2MDkAAR4HjAAPQQUPCWjhq1xVfzaOcxV4QM-AIRGama24RpP7UQuPWkMl0N9RvG5thw_aem_Bb933TZdrkmbVskqRMRlRw",
+    "source": "web",
+    "source_label": "Web",
+    "author": "GitHub",
+    "title": "GitHub - tirth8205/code-review-graph: Local knowledge graph for Claude Code. Builds a persistent map of your codebase so Claude reads only what matters — 6.8× fewer tokens on reviews and up to 49× on ",
+    "text": "Local knowledge graph for Claude Code. Builds a persistent map of your codebase so Claude reads only what matters — 6.8× fewer tokens on reviews and up to 49× on daily coding tasks. - tirth8205/cod...",
+    "image": "https://opengraph.githubassets.com/26515db95d2bc389cf832e0051352a97f2e9fa8d57ec920cfe0c850806cc405e/tirth8205/code-review-graph",
+    "note": ".",
+    "tags": [
+      "ai",
+      "graph"
+    ],
+    "read": false,
+    "read_at": null,
+    "saved_by": "Nguyên",
+    "saved_by_slug": "nguyen",
+    "saved_at": "2026-04-21T06:07:34.260Z"
+  },
+  {
     "id": "bm_1776706461635",
     "num": 77,
     "url": "https://www.facebook.com/100090361965400/posts/pfbid02jY3YvqTFzUJ1tSBiMg9v5eN69mCepzz6eo6tMK9b2LfgrFUzgKPgwdcvKYqc9Fmql/",
