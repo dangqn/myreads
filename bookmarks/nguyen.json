@@ -1,5 +1,27 @@
 [
   {
+    "id": "bm_1777049481627",
+    "num": 80,
+    "url": "https://claude-code-from-source.com/",
+    "source": "web",
+    "source_label": "Web",
+    "author": "",
+    "title": "Claude Code from Source — Architecture, Patterns & Internals",
+    "text": "A technical book analyzing the architecture of Anthropic",
+    "image": "https://claude-code-from-source.com/og-image.jpg",
+    "note": ".",
+    "tags": [
+      "ai",
+      "claude",
+      "book"
+    ],
+    "read": false,
+    "read_at": null,
+    "saved_by": "Nguyên",
+    "saved_by_slug": "nguyen",
+    "saved_at": "2026-04-24T16:51:21.628Z"
+  },
+  {
     "id": "bm_1776837189437",
     "num": 79,
     "url": "https://goonnguyen.substack.com/p/ai-and-cac-nghe-moi-trong-ky-nguyen?fbclid=IwY2xjawRVNglleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA80MDk5NjI2MjMwODU2MDkAAR5XLER70oGg91SGkLlrdJ90xyd-EeGBmvF-Dy7bjKhq0wfr3BdDcfze9qG90A_aem_wM1N6t62PFrWjoZ1bEy3Fw&utm_id=97758_v0_s00_e223_tv0",
