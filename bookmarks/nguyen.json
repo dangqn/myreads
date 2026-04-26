@@ -1,5 +1,26 @@
 [
   {
+    "id": "bm_1777187108259",
+    "num": 82,
+    "url": "https://www.facebook.com/100032574519276/posts/pfbid0cwGTiMV4N54tYGZ2pLN5ckm5af1sH5NzGyj5XCxgg2DjAgvJHfWNbkVX7qp7p9eSl/",
+    "source": "facebook",
+    "source_label": "Facebook",
+    "author": "",
+    "title": "Việt Nguyễn AI",
+    "text": "GitAgent: Docker dành cho AI agents 🔥\n\nHiện nay, mỗi framework lại định nghĩa agent theo một kiểu khác nhau. Agent viết cho CrewAI không thể chạy thẳng trong Claude Code. Agent của LangChain cũng...",
+    "image": "https://scontent-muc2-1.xx.fbcdn.net/v/t39.30808-6/661444791_1563836908045445_1279255240808394737_n.jpg?stp=cp6_dst-jpg_tt6&cstp=mx890x1136&ctp=p600x600&_nc_cat=101&ccb=1-7&_nc_sid=3b1b4a&_nc_ohc=ZPs76QApXEQQ7kNvwGB_i3S&_nc_oc=Adq02QwkLaOM77rs7q081F4NBwaCKwSmIQ9IIYky0F5JTqOEEPG6fi9jjSccKNfxsvM&_nc_zt=23&_nc_ht=scontent-muc2-1.xx&_nc_gid=1OVXeKb3TF6peV0MFFfWyg&_nc_ss=73100&oh=00_Af2p4yUf2pnMKve8K7H_DQVD9xGQvj0KnhJvhc5mylsSaA&oe=69F38F06",
+    "note": "",
+    "tags": [
+      "ai",
+      "agent"
+    ],
+    "read": false,
+    "read_at": null,
+    "saved_by": "Nguyên",
+    "saved_by_slug": "nguyen",
+    "saved_at": "2026-04-26T07:05:08.263Z"
+  },
+  {
     "id": "bm_1777065607161",
     "num": 81,
     "url": "https://transform.sg.larksuite.com/wiki/RYUDwqHaeiNawikWsOLlgG1Dgre?fbclid=IwY2xjawRYuwtleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA80MDk5NjI2MjMwODU2MDkAAR6qQ8v4lWTRqs53BbKvDsFCbaYwEIVn9vgy7i1my8HR-QFEWEEKuqFjk1EjwQ_aem_HcE4AD5amsyHFhI-oDYksQ",
