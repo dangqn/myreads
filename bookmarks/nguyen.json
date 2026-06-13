@@ -1,5 +1,25 @@
 [
   {
+    "id": "bm_1781355183913",
+    "num": 118,
+    "url": "https://www.facebook.com/100063450834729/posts/1446795880778759/?app=fbl",
+    "source": "facebook",
+    "source_label": "Facebook",
+    "author": "",
+    "title": "Học lập trình cho người mới bắt đầu",
+    "text": "Rất nhiều lập trình viên mới bắt đầu cảm thấy Git và GitHub quá phức tạp. Nhưng khi được trình bày theo cách trực quan và từng bước một, đây lại là một trong những kỹ năng quan trọng nhất trong sự...",
+    "image": "https://scontent-muc2-1.xx.fbcdn.net/v/t39.30808-6/723852765_1446795484112132_1044282230105431930_n.jpg?stp=dst-jpg_tt6&cstp=mx960x1080&ctp=p600x600&_nc_cat=104&ccb=1-7&_nc_sid=cae128&_nc_ohc=92UIRtXuB3UQ7kNvwEQITsE&_nc_oc=AdqBGKIVGdOFPTsAAErmpAEtmdV9S9ttIlZiFC8yr-fhPYgLgCvzx7xlOmHUHHvnTMQ&_nc_zt=23&_nc_ht=scontent-muc2-1.xx&_nc_gid=eIhe07GEXKn4IrSvwegfnQ&_nc_ss=73100&oh=00_Af8jVr98b9pM6ezyX8b5s0Cm6Xj92FvB6Drc-dvTByvG2w&oe=6A332FA9",
+    "note": ".",
+    "tags": [
+      "git"
+    ],
+    "read": false,
+    "read_at": null,
+    "saved_by": "Nguyên",
+    "saved_by_slug": "nguyen",
+    "saved_at": "2026-06-13T12:53:03.917Z"
+  },
+  {
     "id": "bm_1781069504525",
     "num": 117,
     "url": "https://github.com/PrinceSinghhub/Ultimate-AI-Engineer-Roadmap-2026?fbclid=IwY2xjawSV1WxleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA80MDk5NjI2MjMwODU2MDkAAR6xFinUkVpNcm298b1zKlKykN6XhT7PiW3PeW4U6J8bIZlmlxK1ZUrNdRA_oA_aem_RRYuZIQ1tbZIGc5pRazVjg",
