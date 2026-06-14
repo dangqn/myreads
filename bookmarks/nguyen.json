@@ -1,5 +1,26 @@
 [
   {
+    "id": "bm_1781438547826",
+    "num": 123,
+    "url": "https://www.facebook.com/100095112399704/posts/856069197573486/?app=fbl",
+    "source": "facebook",
+    "source_label": "Facebook",
+    "author": "",
+    "title": "Code Web Không Khó",
+    "text": "🔥 71 KỸ NĂNG, 681 BÁO CÁO HACKERONE, 24 LỚP LỖ HỔNG — CLAUDE CODE GIỜ ĐÂY LÀ MỘT BUG HUNTER CHUYÊN NGHIỆP THỰC THỤ!\n\nBạn có bao giờ tưởng tượng Claude Code — vốn chỉ viết code, debug, deploy — giờ có...",
+    "image": "https://scontent-muc2-1.xx.fbcdn.net/v/t39.30808-6/721951110_856068747573531_8585992382077021123_n.jpg?stp=cp6_dst-jpg_tt6&cstp=mx2048x1195&ctp=p600x600&_nc_cat=100&ccb=1-7&_nc_sid=cae128&_nc_ohc=RTPk0umblIoQ7kNvwHUSq9S&_nc_oc=Adrs6ialykBzHDVllunCueR19Q9EvJe7Wx_vVVOscpA2JMR-xqc35MbvPOBIMUfqIro&_nc_zt=23&_nc_ht=scontent-muc2-1.xx&_nc_gid=mWfIYZVunz4OllrSJLNUxw&_nc_ss=73100&oh=00_Af-53iftR4JSZWSK8ujkEXn0tfgQYubc3-Ka310uvwQphg&oe=6A345D27",
+    "note": ".",
+    "tags": [
+      "ai",
+      "security"
+    ],
+    "read": false,
+    "read_at": null,
+    "saved_by": "Nguyên",
+    "saved_by_slug": "nguyen",
+    "saved_at": "2026-06-14T12:02:27.829Z"
+  },
+  {
     "id": "bm_1781379199947",
     "num": 122,
     "url": "https://www.ycombinator.com/library/4D-yc-s-essential-startup-advice?fbclid=IwY2xjawSaj6dleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA80MDk5NjI2MjMwODU2MDkAAR7EUuKo-UEoTsVo2qTAgyRoNJ9sxsMBag6xrf38y8dnL7W8ULo99K9N0J7cQg_aem_AYWr8rMGpJ32pGLYjlxYyw",
