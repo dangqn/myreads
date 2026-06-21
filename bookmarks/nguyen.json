@@ -1,5 +1,26 @@
 [
   {
+    "id": "bm_1782048699681",
+    "num": 128,
+    "url": "https://learning.aiecos.ai/vi-vn/stage-1/learning-map/",
+    "source": "web",
+    "source_label": "Web",
+    "author": "Learning AI",
+    "title": "Learning AI",
+    "text": "Học Vibe Coding từ cơ bản đến nâng cao - Làm chủ lập trình AI từ cơ bản đến chuyên sâu",
+    "image": "https:/learning-92bb92btl-aiecosvietnam.vercel.app/og-image.png",
+    "note": "",
+    "tags": [
+      "ai",
+      "learning"
+    ],
+    "read": false,
+    "read_at": null,
+    "saved_by": "Nguyên",
+    "saved_by_slug": "nguyen",
+    "saved_at": "2026-06-21T13:31:39.681Z"
+  },
+  {
     "id": "bm_1781973638770",
     "num": 127,
     "url": "https://www.facebook.com/share/p/1EeCsWAjrs/",
