@@ -1,5 +1,25 @@
 [
   {
+    "id": "bm_1782893535361",
+    "num": 136,
+    "url": "https://www.facebook.com/share/p/1BiGeZpdMm/",
+    "source": "facebook",
+    "source_label": "Facebook",
+    "author": "",
+    "title": "Back-end Golang từ A-Z - EBVN | # **Fundamentals of Backend Architecture - Làm thế nào để thiết kế một hệ thống Backend Scalable** | Facebook",
+    "text": "# **Fundamentals of Backend Architecture - Làm thế nào để thiết kế một hệ thống Backend Scalable**\n\nKiến trúc hệ thống (Software Architecture) chưa bao giờ là một bản vẽ tĩnh. Nó là sự tiến hóa liên...",
+    "image": "https://scontent-muc2-1.xx.fbcdn.net/v/t39.30808-6/732179062_27560255990280503_3176536269707532843_n.jpg?stp=dst-jpg_tt6&cstp=mx1280x720&ctp=p600x600&_nc_cat=101&ccb=1-7&_nc_sid=6376bf&_nc_ohc=7xyj9RYsnOgQ7kNvwHKcGZX&_nc_oc=AdowYnUab68vI3IB4kbPpQQrlH7j5NQqFD_c3EKrerKbkyouxJao_zeUfvVDe76x_94&_nc_zt=23&_nc_ht=scontent-muc2-1.xx&_nc_gid=YCQpacfVtP6Z9GIFVNDOWw&_nc_ss=73100&oh=00_AQCnuUt2C_lM9UEf4gD_gN6Loyy6ElO45aOnee0iAcHUOg&oe=6A4A84D9",
+    "note": "",
+    "tags": [
+      "backend"
+    ],
+    "read": false,
+    "read_at": null,
+    "saved_by": "Nguyên",
+    "saved_by_slug": "nguyen",
+    "saved_at": "2026-07-01T08:12:15.365Z"
+  },
+  {
     "id": "bm_1782874732041",
     "num": 135,
     "url": "https://www.facebook.com/share/p/1MZtDrkoyW/",
