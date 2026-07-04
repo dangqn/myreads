@@ -1,5 +1,25 @@
 [
   {
+    "id": "bm_1783194152013",
+    "num": 138,
+    "url": "https://ngrok.com/blog/i-ported-kubernetes-to-the-browser?fbclid=IwY2xjawS2PthleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA80MDk5NjI2MjMwODU2MDkAAR5WEfhqt6aD49PUBqZMWu9dolw1R8OTeaCu2JZnRwxfRRHYNj0FTfqkfyncmw_aem_sfdfOS14rjDt7B2Si4HrcA",
+    "source": "web",
+    "source_label": "Web",
+    "author": "ngrok blog",
+    "title": "I ported Kubernetes to the browser | ngrok blog",
+    "text": "Almost 100,000 lines of LLM-generated code in 2 months, and none of it is slop.",
+    "image": "https://ngrok.com/blog-assets/images/2026-06-26-i-ported-kubernetes-to-the-browser/og.jpg",
+    "note": ".",
+    "tags": [
+      "kurbenetes"
+    ],
+    "read": false,
+    "read_at": null,
+    "saved_by": "Nguyên",
+    "saved_by_slug": "nguyen",
+    "saved_at": "2026-07-04T19:42:32.014Z"
+  },
+  {
     "id": "bm_1782971302306",
     "num": 137,
     "url": "https://www.facebook.com/100095112399704/posts/871120496068356/?app=fbl",
