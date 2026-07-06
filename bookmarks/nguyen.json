@@ -1,5 +1,25 @@
 [
   {
+    "id": "bm_1783371811729",
+    "num": 141,
+    "url": "https://www.facebook.com/share/p/193PF6vvoK/",
+    "source": "facebook",
+    "source_label": "Facebook",
+    "author": "",
+    "title": "Học lập trình cho người mới bắt đầu",
+    "text": "RedTeam-Tools: Hơn 150 công cụ Red Team mã nguồn mở trong một repository\n\nRedTeam-Tools là một bộ sưu tập được tuyển chọn gồm hơn 150 công cụ và tài nguyên mã nguồn mở dành cho các chuyên gia an ninh...",
+    "image": "https://scontent-muc2-1.xx.fbcdn.net/v/t39.99422-6/738774403_1394574489396905_2113969591670823842_n.png?stp=dst-jpg_tt6&cstp=mx1080x936&ctp=p600x600&_nc_cat=108&ccb=1-7&_nc_sid=b96d88&_nc_ohc=Z2b8FkSYO3AQ7kNvwG8u8vA&_nc_oc=AdrKZYcTW-x_z0VbpENg-juc0whkncy_-jifv8yqKKTFQMUb5PVbsPfunXrliOEIn8c&_nc_zt=14&_nc_ht=scontent-muc2-1.xx&_nc_gid=iR1fN48nXYloyGXcmQeixQ&_nc_ss=73100&oh=00_AQDNk8ehvJX2vHWOO84HukesokBXpf8i82ZbJMEocZdG9g&oe=6A51D4BF",
+    "note": "",
+    "tags": [
+      "security"
+    ],
+    "read": false,
+    "read_at": null,
+    "saved_by": "Nguyên",
+    "saved_by_slug": "nguyen",
+    "saved_at": "2026-07-06T21:03:31.756Z"
+  },
+  {
     "id": "bm_1783285118388",
     "num": 140,
     "url": "https://github.com/dungngminh/simutil?fbclid=IwY2xjawS3pCdleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA80MDk5NjI2MjMwODU2MDkAAR5l4OAYUvywz8Ekn1iJfWCMMWnG-EW4_RjVU1yT_8irNPrK9y-dTulevwFwzQ_aem_dZes1NT4d3enGENQGJEUDQ",
