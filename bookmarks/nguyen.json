@@ -1,5 +1,26 @@
 [
   {
+    "id": "bm_1784058749118",
+    "num": 146,
+    "url": "https://github.com/cobusgreyling/loop-engineering?fbclid=IwY2xjawTDW8lleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA80MDk5NjI2MjMwODU2MDkAAR6Jm4ZMNVFflX8KInp4ElQ7WfgPe77L0nZK8AGOZfUcXQVkhwOSgFYErIMoEQ_aem_bwEHrXQlEvAfNym_8E1jwA",
+    "source": "web",
+    "source_label": "Web",
+    "author": "GitHub",
+    "title": "GitHub - cobusgreyling/loop-engineering: Practical patterns, starters & CLI tools for loop engineering with AI coding agents. Design systems that prompt and orchestrate agents (inspired by Addy Osmani",
+    "text": "Practical patterns, starters & CLI tools for loop engineering with AI coding agents. Design systems that prompt and orchestrate agents (inspired by Addy Osmani and Boris Cherny). Includes loop-...",
+    "image": "https://repository-images.githubusercontent.com/1263648864/e1d343b2-4e6d-455b-ad54-49a72f2d3c48",
+    "note": ".",
+    "tags": [
+      "ai",
+      "loop"
+    ],
+    "read": false,
+    "read_at": null,
+    "saved_by": "Nguyên",
+    "saved_by_slug": "nguyen",
+    "saved_at": "2026-07-14T19:52:29.119Z"
+  },
+  {
     "id": "bm_1783897548432",
     "num": 145,
     "url": "https://github.com/deanpeters/Product-Manager-Skills",
