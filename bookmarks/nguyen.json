@@ -1,5 +1,26 @@
 [
   {
+    "id": "bm_1784387692974",
+    "num": 148,
+    "url": "https://www.facebook.com/share/p/1LQy8yjsSj/",
+    "source": "facebook",
+    "source_label": "Facebook",
+    "author": "",
+    "title": "Quản Trị Mạng - Bảo Mật - DevNet (VnPro) | # **KỶ NGUYÊN AI : DÂN IT cần nâng cấp gì để đi đường dài | Facebook",
+    "text": "# **KỶ NGUYÊN AI : DÂN IT cần nâng cấp gì để đi đường dài?**\n\nNếu phải nói thẳng, mình nghĩ **nỗi sợ lớn nhất của giới IT trong năm 2026 không nằm ở “AI có thể thay thế mình hay không”**, mà nằm ở...",
+    "image": "https://scontent-muc2-1.xx.fbcdn.net/v/t39.30808-6/749250341_122193863042781797_2254611005741428891_n.jpg?stp=dst-jpg_tt6&cstp=mx1672x941&ctp=p600x600&_nc_cat=102&ccb=1-7&_nc_sid=6376bf&_nc_ohc=p5hvIAIy4CsQ7kNvwE1zPxG&_nc_oc=Adq8wMuoqFil9fqkFCqItbycUCS4jqyXs1lH-JttVmNf3fsnsGIfCvUEv6Qlc_aL1os&_nc_zt=23&_nc_ht=scontent-muc2-1.xx&_nc_gid=g38teKOHu63gyOIwstoQeQ&_nc_ss=73100&oh=00_AQAL_p-gzYpDvx5iM2ATKUwdXHu75FqhEgrBFXXW1cKn4g&oe=6A6159C9",
+    "note": ".",
+    "tags": [
+      "ai",
+      "kynang"
+    ],
+    "read": false,
+    "read_at": null,
+    "saved_by": "Nguyên",
+    "saved_by_slug": "nguyen",
+    "saved_at": "2026-07-18T15:14:52.979Z"
+  },
+  {
     "id": "bm_1784175631608",
     "num": 147,
     "url": "https://github.com/unclecode/crawl4ai/tree/main/docs/examples/website-to-api",
