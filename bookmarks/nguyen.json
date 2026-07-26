@@ -1,5 +1,26 @@
 [
   {
+    "id": "bm_1785097711420",
+    "num": 154,
+    "url": "https://github.com/bojieli/ai-agent-book/blob/main/docs/en/README.md?fbclid=IwY2xjawTTStRwZG9mA2V4dG4DYWVtAjExAHNydGMGYXBwX2lkDzQwOTk2MjYyMzA4NTYwOQABHorMZ2YZ-n8YKpVMchQuEWb1fg1HXUoLF8YEefvK8YL6GQszwwaWEScbY-Q9_aem_JOmyitgP7hk1HOxED4TxXA#ai-agents-in-depth-design-principles-and-engineering-practice",
+    "source": "web",
+    "source_label": "Web",
+    "author": "GitHub",
+    "title": "ai-agent-book/docs/en/README.md at main · bojieli/ai-agent-book",
+    "text": "《深入理解 AI Agent：设计原理与工程实践》（李博杰 著）开源主仓库：全书正文、编译版 PDF 与按章配套代码 - bojieli/ai-agent-book",
+    "image": "https://opengraph.githubassets.com/d23a016a6a9037a49a2a94146d6ebb58ae097ce670ab3d1ecd4c84452b180a16/bojieli/ai-agent-book",
+    "note": ".",
+    "tags": [
+      "ai",
+      "agent"
+    ],
+    "read": false,
+    "read_at": null,
+    "saved_by": "Nguyên",
+    "saved_by_slug": "nguyen",
+    "saved_at": "2026-07-26T20:28:31.421Z"
+  },
+  {
     "id": "bm_1785048580576",
     "num": 153,
     "url": "https://github.com/Shubhamsaboo/awesome-llm-apps/tree/main/advanced_ai_agents/multi_agent_apps/ai_financial_coach_agent",
