@@ -1,5 +1,25 @@
 [
   {
+    "id": "bm_1785651240183",
+    "num": 155,
+    "url": "https://devops-daily.com/games?fbclid=IwY2xjawTbvqtwZG9mA2V4dG4DYWVtAjExAHNydGMGYXBwX2lkDzQwOTk2MjYyMzA4NTYwOQABHly9ykCjdWMVHsVb_y6mdH0afckQ-yPC8ZUOUNYnjr3gW5sZ47_2OLIVS6FD_aem_ROr_TM6LsPXx80TGkmg-0Q",
+    "source": "web",
+    "source_label": "Web",
+    "author": "DevOps Daily Team",
+    "title": "DevOps Games & Interactive Tools - DevOps Daily",
+    "text": "Interactive games and fun simulators for DevOps professionals to learn and practice skills in a playful way. Explore our collection of DevOps-themed games designed to enhance your skills and knowledge.",
+    "image": "https://devops-daily.com/images/pages/simulators.png",
+    "note": "",
+    "tags": [
+      "devops"
+    ],
+    "read": false,
+    "read_at": null,
+    "saved_by": "Nguyên",
+    "saved_by_slug": "nguyen",
+    "saved_at": "2026-08-02T06:14:00.185Z"
+  },
+  {
     "id": "bm_1785097711420",
     "num": 154,
     "url": "https://github.com/bojieli/ai-agent-book/blob/main/docs/en/README.md?fbclid=IwY2xjawTTStRwZG9mA2V4dG4DYWVtAjExAHNydGMGYXBwX2lkDzQwOTk2MjYyMzA4NTYwOQABHorMZ2YZ-n8YKpVMchQuEWb1fg1HXUoLF8YEefvK8YL6GQszwwaWEScbY-Q9_aem_JOmyitgP7hk1HOxED4TxXA#ai-agents-in-depth-design-principles-and-engineering-practice",
