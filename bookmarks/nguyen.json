@@ -1,5 +1,26 @@
 [
   {
+    "id": "bm_1788699400736",
+    "num": 165,
+    "url": "https://github.com/jangtrinh/design-os-3d-blender?fbclid=IwY2xjawUKQhpwZG9mA2V4dG4DYWVtAjExAHNydGMGYXBwX2lkDzQwOTk2MjYyMzA4NTYwOQABHq6K5af2xWRSQn2szImfjS2IMiB8Bvh0F_6dspnSva18ipavykbsr7smJgDF_aem_dacwqDMsNffV6toZPmdi6Q",
+    "source": "web",
+    "source_label": "Web",
+    "author": "GitHub",
+    "title": "GitHub - jangtrinh/design-os-3d-blender: AI-agent operating system for Blender 5.2: skills, verified bpy knowledge base, AGENT_OK/AGENT_FAIL execution contract, production gate for 3D-printable parts,",
+    "text": "AI-agent operating system for Blender 5.2: skills, verified bpy knowledge base, AGENT_OK/AGENT_FAIL execution contract, production gate for 3D-printable parts, robot-arm demo - jangtrinh/design-os-...",
+    "image": "https://opengraph.githubassets.com/eb40e52dd399c853aebfc982f0c6fa3b809c4e287c87b61c353138314c67eadb/jangtrinh/design-os-3d-blender",
+    "note": "",
+    "tags": [
+      "ai",
+      "3d"
+    ],
+    "read": false,
+    "read_at": null,
+    "saved_by": "Nguyên",
+    "saved_by_slug": "nguyen",
+    "saved_at": "2026-09-06T12:56:40.737Z"
+  },
+  {
     "id": "bm_1788672053602",
     "num": 164,
     "url": "https://algofox.app/learn/system-design-foundations/",
