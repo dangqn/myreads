@@ -1,5 +1,23 @@
 [
   {
+    "id": "bm_1788672053602",
+    "num": 164,
+    "url": "https://algofox.app/learn/system-design-foundations/",
+    "source": "web",
+    "source_label": "Web",
+    "author": "AlgoFox",
+    "title": "System Design Foundations, AlgoFox",
+    "text": "Frame a system before you draw it: the requirements that matter, the numbers behind them, the API and data model that hold up, and one design carried through a spike and a failure to a tradeoff you can defend.",
+    "image": "https://algofox.app/icon-512.png",
+    "note": "",
+    "tags": [],
+    "read": false,
+    "read_at": null,
+    "saved_by": "Nguyên",
+    "saved_by_slug": "nguyen",
+    "saved_at": "2026-09-06T05:20:53.603Z"
+  },
+  {
     "id": "bm_1788519408080",
     "num": 163,
     "url": "https://www.facebook.com/share/r/1FHqLbixCj/",
