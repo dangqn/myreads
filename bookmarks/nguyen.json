@@ -1,5 +1,26 @@
 [
   {
+    "id": "bm_1790161144116",
+    "num": 172,
+    "url": "https://www.facebook.com/100063450834729/posts/1540954444696235/?app=fbl",
+    "source": "facebook",
+    "source_label": "Facebook",
+    "author": "",
+    "title": "Học lập trình cho người mới bắt đầu",
+    "text": "Làm thế nào một nhóm AI Agent có thể đạt được nhiều hơn tổng khả năng của từng agent?\n\nPhần lớn các hệ thống AI đa tác tử hiện nay vẫn dựa vào những cấu trúc cộng tác cứng nhắc do con người thiết kế....",
+    "image": "https://scontent-fra3-1.xx.fbcdn.net/v/t39.99422-6/818536158_1439623294734390_2529220919950187563_n.png?stp=dst-jpg_tt6&cstp=mx1080x1302&ctp=p600x600&_nc_cat=108&ccb=1-7&_nc_sid=b96d88&_nc_ohc=0tVAtSy_nhIQ7kNvwFhVEPJ&_nc_oc=AdrvmSfDzfTO9IDxFbT3-BmCbD_YUelfpgMnjuxsCFhlTxAUAt3mWUEPNBP_qPiUS-g&_nc_zt=14&_nc_ht=scontent-fra3-1.xx&_nc_gid=1NZmx8hhQFB_HUECV85GAQ&_nc_ss=73100&oh=00_AQI_P8qJrxJWKZRqGcB8_NUnefpaaNdy64Mjd-IYXpGIJw&oe=6AB99327",
+    "note": ".",
+    "tags": [
+      "ai",
+      "agent"
+    ],
+    "read": false,
+    "read_at": null,
+    "saved_by": "Nguyên",
+    "saved_by_slug": "nguyen",
+    "saved_at": "2026-09-23T10:59:04.120Z"
+  },
+  {
     "id": "bm_1789710766444",
     "num": 171,
     "url": "https://github.com/nclamvn/human-atlas",
